@@ -1,0 +1,40 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/CircleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/mobsya/thymio/protos/Thymio2.proto"
+
+WorldInfo {
+  info [
+    "Simple Thymio II simulation controlled by a ROS node written in Python."
+  ]
+  title "ROS Python"
+  basicTimeStep 20
+  contactProperties [
+    ContactProperties {
+      material2 "thymio body"
+      coulombFriction [
+        0.7
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.12789900706026552 0.665017585233845 0.7357944382249323 0.7145183264380753
+  position -2.4922945423620355 -1.498033875852477 1.4599981930184418
+  follow "Thymio II"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+CircleArena {
+  rotation 0 0 1 1.5707963267948966
+  wallThickness 0.05
+}
+DEF THYMIO2 Thymio2 {
+  rotation 0 0 1 -1.570796326794897
+  controller "<extern>"
+  controllerArgs []
+}

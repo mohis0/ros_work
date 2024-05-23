@@ -1,0 +1,36 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/softbank/nao/protos/Nao.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.2848738108837155 0.026358661438446045 0.9582025531377812 2.909389854615235
+  position 7.086165498190405 -1.2612802076651537 4.924415807221189
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Robot {
+  controller "ros"
+  controllerArgs [
+    "--synchronize"
+  ]
+  supervisor TRUE
+}
+Floor {
+  size 10 10
+  tileSize 0.5 0.5
+  appearance Parquetry {
+    type "chequered"
+  }
+}
+Nao {
+  translation 0 0 0.33
+  controller "<generic>"
+}
