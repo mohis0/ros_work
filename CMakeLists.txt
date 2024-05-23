@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(webots_ros)
+project(ros_work)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -20,21 +20,21 @@ find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs sensor_msgs messag
 #######################################
 
 ## Generate messages in the 'msg' folder
-  add_message_files(
-    FILES
-  )
+  # add_message_files(
+  #   FILES
+  # )
 
 ## Generate services in the 'srv' folder
-  add_service_files(
-    FILES
-  )
+  # add_service_files(
+  #   FILES
+  # )
 
 ## Generate added messages and services with any dependencies listed here
-  generate_messages(
-    DEPENDENCIES
-    std_msgs
-    sensor_msgs
-  )
+  # generate_messages(
+  #   DEPENDENCIES
+  #   std_msgs
+  #   sensor_msgs
+  # )
 
 ###################################
 ## catkin specific configuration ##
