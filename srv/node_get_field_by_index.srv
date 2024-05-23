@@ -1,5 +1,0 @@
-uint64 node
-uint32 index
-bool proto
----
-uint64 field

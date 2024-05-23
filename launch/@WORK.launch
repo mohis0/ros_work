@@ -12,5 +12,5 @@
 
   <arg name="duration" default="20" doc="Duration in seconds"/>
   <arg name="auto_close" default="false" doc="Startup mode"/>
-  <node name="ros_python" pkg="webots_ros" type="ros_python.py" args="$(arg duration)" required="$(arg auto_close)" output="screen" respawn="true"/>
+  <node name="WORK" pkg="webots_ros" type="WORK.py" args="$(arg duration)" required="$(arg auto_close)" output="screen" respawn="true"/>
 </launch>

@@ -1,4 +1,0 @@
-uint64 node
-string state_name
----
-int32 success

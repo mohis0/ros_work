@@ -6,6 +6,7 @@ maximizedDockId: -1
 centralWidgetVisible: 1
 orthographicViewHeight: 1
 textFiles: -1
+globalOptionalRendering: CoordinateSystem::LidarRaysPaths
 consoles: Console:All:All
 renderingDevicePerspectives: youBot:Astra;1;1;0;0
 renderingDevicePerspectives: youBot:Astra depth;1;0.848437;0;0
