@@ -1,15 +1,16 @@
 #VRML_SIM R2023b utf8
 
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/floors/protos/RectangleArena.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/devices/robotis/protos/RobotisLds01.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/RoughPine.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/solids/protos/SolidBox.proto"
 
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.2664430629446798 0.06979917409478402 -0.9613200140974615 2.6438295008353823
-  position 4.840801775835068 3.582900821175761 3.104066080501538
+  orientation 0.12969136530202713 0.6648229027615029 -0.735656616724043 0.5093157486244256
+  position -1.6094698768303866 1.0421266094512283 0.6620043590420502
   followType "Mounted Shot"
 }
 TexturedBackground {
@@ -21,18 +22,418 @@ TexturedBackgroundLight {
   luminosity 0.1
   castShadows FALSE
 }
-RectangleArena {
-  rotation 0 1 0 0
-  floorSize 9 4
-  floorTileSize 9 4
-  floorAppearance Appearance {
-    textureTransform TextureTransform {
+Solid {
+  children [
+    Solid {
+      children [
+        Shape {
+          appearance RoughPine {
+            IBLStrength 20
+          }
+          geometry IndexedFaceSet {
+            coord Coordinate {
+              point [
+                -2 -2 0
+                2 -2 0
+                -2 2 0
+                2 2 0
+              ]
+            }
+            texCoord TextureCoordinate {
+              point [
+                0 0
+                4 0
+                0 4
+                4 4
+              ]
+            }
+            coordIndex [
+              2, 0, 1, 3, -1
+            ]
+            texCoordIndex [
+              2, 0, 1, 3, -1
+            ]
+          }
+        }
+      ]
+      name "floor"
+      model "floor"
+      boundingObject Plane {
+        size 4 4
+      }
+      locked TRUE
     }
-  }
+    Solid {
+      translation 2.005 0 0.15
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColorMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_base_color.jpg"
+              ]
+            }
+            roughnessMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_roughness.jpg"
+              ]
+            }
+            normalMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_normal.jpg"
+              ]
+            }
+          }
+          geometry IndexedFaceSet {
+            coord Coordinate {
+              point [
+                -0.005 2 0.15
+                0.005 2 0.15
+                0.005 2 -0.15
+                -0.005 2 -0.15
+                -0.005 -2 -0.15
+                0.005 -2 -0.15
+                0.005 -2 0.15
+                -0.005 -2 0.15
+                -0.005 -2 0.15
+                0.005 -2 0.15
+                0.005 2 0.15
+                -0.005 2 0.15
+                0.005 -2 -0.15
+                -0.005 -2 -0.15
+                -0.005 2 -0.15
+                0.005 2 -0.15
+                -0.005 -2 -0.15
+                -0.005 -2 0.15
+                -0.005 2 0.15
+                -0.005 2 -0.15
+                0.005 -2 0.15
+                0.005 -2 -0.15
+                0.005 2 -0.15
+                0.005 2 0.15
+              ]
+            }
+            texCoord TextureCoordinate {
+              point [
+                0.0025 0.075
+                0 0.075
+                0 0
+                0.0025 0
+                0 0
+                0.0025 0
+                0.0025 0.075
+                0 0.075
+                0 0.0025
+                0 0
+                1 0
+                1 0.0025
+                0 0.0025
+                0 0
+                1 0
+                1 0.0025
+                1 0
+                1 0.075
+                0 0.075
+                0 0
+                0 0.075
+                0 0
+                1 0
+                1 0.075
+              ]
+            }
+            coordIndex [
+              0, 1, 2, 3, -1, 4, 5, 6, 7, -1, 8, 9, 10, 11, -1, 12, 13, 14, 15, -1, 16, 17, 18, 19, -1, 20, 21, 22, 23, -1
+            ]
+            creaseAngle 1.5
+          }
+        }
+      ]
+      name "wall"
+      model "box"
+      boundingObject Box {
+        size 0.01 4 0.3
+      }
+    }
+    Solid {
+      translation -2.005 0 0.15
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColorMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_base_color.jpg"
+              ]
+            }
+            roughnessMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_roughness.jpg"
+              ]
+            }
+            normalMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_normal.jpg"
+              ]
+            }
+          }
+          geometry IndexedFaceSet {
+            coord Coordinate {
+              point [
+                -0.005 2 0.15
+                0.005 2 0.15
+                0.005 2 -0.15
+                -0.005 2 -0.15
+                -0.005 -2 -0.15
+                0.005 -2 -0.15
+                0.005 -2 0.15
+                -0.005 -2 0.15
+                -0.005 -2 0.15
+                0.005 -2 0.15
+                0.005 2 0.15
+                -0.005 2 0.15
+                0.005 -2 -0.15
+                -0.005 -2 -0.15
+                -0.005 2 -0.15
+                0.005 2 -0.15
+                -0.005 -2 -0.15
+                -0.005 -2 0.15
+                -0.005 2 0.15
+                -0.005 2 -0.15
+                0.005 -2 0.15
+                0.005 -2 -0.15
+                0.005 2 -0.15
+                0.005 2 0.15
+              ]
+            }
+            texCoord TextureCoordinate {
+              point [
+                0.0025 0.075
+                0 0.075
+                0 0
+                0.0025 0
+                0 0
+                0.0025 0
+                0.0025 0.075
+                0 0.075
+                0 0.0025
+                0 0
+                1 0
+                1 0.0025
+                0 0.0025
+                0 0
+                1 0
+                1 0.0025
+                1 0
+                1 0.075
+                0 0.075
+                0 0
+                0 0.075
+                0 0
+                1 0
+                1 0.075
+              ]
+            }
+            coordIndex [
+              0, 1, 2, 3, -1, 4, 5, 6, 7, -1, 8, 9, 10, 11, -1, 12, 13, 14, 15, -1, 16, 17, 18, 19, -1, 20, 21, 22, 23, -1
+            ]
+            creaseAngle 1.5
+          }
+        }
+      ]
+      name "wall#2"
+      model "box"
+      boundingObject Box {
+        size 0.01 4 0.3
+      }
+    }
+    Solid {
+      translation 0 2.005 0.15
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColorMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_base_color.jpg"
+              ]
+            }
+            roughnessMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_roughness.jpg"
+              ]
+            }
+            normalMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_normal.jpg"
+              ]
+            }
+          }
+          geometry IndexedFaceSet {
+            coord Coordinate {
+              point [
+                -2.01 0.005 0.15
+                2.01 0.005 0.15
+                2.01 0.005 -0.15
+                -2.01 0.005 -0.15
+                -2.01 -0.005 -0.15
+                2.01 -0.005 -0.15
+                2.01 -0.005 0.15
+                -2.01 -0.005 0.15
+                -2.01 -0.005 0.15
+                2.01 -0.005 0.15
+                2.01 0.005 0.15
+                -2.01 0.005 0.15
+                2.01 -0.005 -0.15
+                -2.01 -0.005 -0.15
+                -2.01 0.005 -0.15
+                2.01 0.005 -0.15
+                -2.01 -0.005 -0.15
+                -2.01 -0.005 0.15
+                -2.01 0.005 0.15
+                -2.01 0.005 -0.15
+                2.01 -0.005 0.15
+                2.01 -0.005 -0.15
+                2.01 0.005 -0.15
+                2.01 0.005 0.15
+              ]
+            }
+            texCoord TextureCoordinate {
+              point [
+                1 0.0746268656716418
+                0 0.0746268656716418
+                0 0
+                1 0
+                0 0
+                1 0
+                1 0.0746268656716418
+                0 0.0746268656716418
+                0 1
+                0 0
+                0.0024875621890547268 0
+                0.0024875621890547268 1
+                0 1
+                0 0
+                0.0024875621890547268 0
+                0.0024875621890547268 1
+                0.0024875621890547268 0
+                0.0024875621890547268 0.0746268656716418
+                0 0.0746268656716418
+                0 0
+                0 0.0746268656716418
+                0 0
+                0.0024875621890547268 0
+                0.0024875621890547268 0.0746268656716418
+              ]
+            }
+            coordIndex [
+              0, 1, 2, 3, -1, 4, 5, 6, 7, -1, 8, 9, 10, 11, -1, 12, 13, 14, 15, -1, 16, 17, 18, 19, -1, 20, 21, 22, 23, -1
+            ]
+            creaseAngle 1.5
+          }
+        }
+      ]
+      name "wall#3"
+      model "box"
+      boundingObject Box {
+        size 4.02 0.01 0.3
+      }
+    }
+    Solid {
+      translation 0 -2.005 0.15
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColorMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_base_color.jpg"
+              ]
+            }
+            roughnessMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_roughness.jpg"
+              ]
+            }
+            normalMap ImageTexture {
+              url [
+                "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/brushed_aluminium/brushed_aluminium_normal.jpg"
+              ]
+            }
+          }
+          geometry IndexedFaceSet {
+            coord Coordinate {
+              point [
+                -2.01 0.005 0.15
+                2.01 0.005 0.15
+                2.01 0.005 -0.15
+                -2.01 0.005 -0.15
+                -2.01 -0.005 -0.15
+                2.01 -0.005 -0.15
+                2.01 -0.005 0.15
+                -2.01 -0.005 0.15
+                -2.01 -0.005 0.15
+                2.01 -0.005 0.15
+                2.01 0.005 0.15
+                -2.01 0.005 0.15
+                2.01 -0.005 -0.15
+                -2.01 -0.005 -0.15
+                -2.01 0.005 -0.15
+                2.01 0.005 -0.15
+                -2.01 -0.005 -0.15
+                -2.01 -0.005 0.15
+                -2.01 0.005 0.15
+                -2.01 0.005 -0.15
+                2.01 -0.005 0.15
+                2.01 -0.005 -0.15
+                2.01 0.005 -0.15
+                2.01 0.005 0.15
+              ]
+            }
+            texCoord TextureCoordinate {
+              point [
+                1 0.0746268656716418
+                0 0.0746268656716418
+                0 0
+                1 0
+                0 0
+                1 0
+                1 0.0746268656716418
+                0 0.0746268656716418
+                0 1
+                0 0
+                0.0024875621890547268 0
+                0.0024875621890547268 1
+                0 1
+                0 0
+                0.0024875621890547268 0
+                0.0024875621890547268 1
+                0.0024875621890547268 0
+                0.0024875621890547268 0.0746268656716418
+                0 0.0746268656716418
+                0 0
+                0 0.0746268656716418
+                0 0
+                0.0024875621890547268 0
+                0.0024875621890547268 0.0746268656716418
+              ]
+            }
+            coordIndex [
+              0, 1, 2, 3, -1, 4, 5, 6, 7, -1, 8, 9, 10, 11, -1, 12, 13, 14, 15, -1, 16, 17, 18, 19, -1, 20, 21, 22, 23, -1
+            ]
+            creaseAngle 1.5
+          }
+        }
+      ]
+      name "wall#4"
+      model "box"
+      boundingObject Box {
+        size 4.02 0.01 0.3
+      }
+    }
+  ]
+  name "plane"
+  model "rectangle arena"
 }
 Robot {
-  translation 0.5447455318858913 1.0479741678283814 0.09882845259356848
-  rotation -0.0025984384846245924 0.0036184274589638825 0.9999900775008548 1.5862414024098472
+  translation -0.33808375152393105 0.9250936494262479 0.09856213626871395
+  rotation 0.003738497764824981 0.002979426215192414 -0.9999885732616601 1.5873975907485531
   children [
     InertialUnit {
       children [
@@ -98,6 +499,7 @@ Robot {
     RobotisLds01 {
       translation 0.29 7.96077e-08 0.02
       rotation 0 0 1 -5.307179586466759e-06
+      name "LIDAR"
     }
     Group {
       children [
@@ -226,7 +628,7 @@ Robot {
         }
         HingeJoint {
           jointParameters HingeJointParameters {
-            position -0.20001625002687884
+            position -0.19999766119378673
             axis 0 0 1
             anchor 0 0 0.077
           }
@@ -243,8 +645,8 @@ Robot {
             }
           ]
           endPoint Solid {
-            translation 1.4671605710236777e-06 -2.0025497666338192e-07 0.07672913302772055
-            rotation 8.682046893691605e-06 9.91717014206239e-05 -0.9999999950447979 0.20001267130016206
+            translation 3.2254672409109653e-06 -2.4983777079655283e-07 0.07663984226710277
+            rotation 1.2554488629024682e-05 0.00014615476696773903 -0.9999999892405842 0.19998607244295533
             children [
               Group {
                 children [
@@ -310,7 +712,7 @@ Robot {
               }
               HingeJoint {
                 jointParameters HingeJointParameters {
-                  position -0.5500088928073285
+                  position -0.5500559819608
                   axis 0 -1 0
                   anchor 0.033 0 0.07
                 }
@@ -328,7 +730,7 @@ Robot {
                 ]
                 endPoint Solid {
                   translation 0.033 0 0.07
-                  rotation 0 1 0 0.5500088928073283
+                  rotation 0 1 0 0.5500559819608
                   children [
                     Group {
                       children [
@@ -381,7 +783,7 @@ Robot {
                     }
                     HingeJoint {
                       jointParameters HingeJointParameters {
-                        position -0.9000045495799983
+                        position -0.9000299801797739
                         axis 0 -1 0
                         anchor 0 0 0.155
                       }
@@ -399,7 +801,7 @@ Robot {
                       ]
                       endPoint Solid {
                         translation 0 0 0.155
-                        rotation 0 1 0 0.9000045495799981
+                        rotation 0 0.9999999999999999 0 0.9000299801797739
                         children [
                           Group {
                             children [
@@ -479,7 +881,7 @@ Robot {
                           }
                           HingeJoint {
                             jointParameters HingeJointParameters {
-                              position -1.5000002382026938
+                              position -1.50000363961132
                               axis 0 -1 0
                               anchor 0 0 0.135
                             }
@@ -496,8 +898,8 @@ Robot {
                               }
                             ]
                             endPoint Solid {
-                              translation 0 0 0.135
-                              rotation 0 1 0 1.500000238202694
+                              translation 2.148892787733506e-05 -1.0154359575409403e-09 0.13499753990564267
+                              rotation 3.865371480492096e-09 0.9999999999999946 -1.0447159755476516e-07 0.4528070971583687
                               children [
                                 Group {
                                   children [
@@ -550,7 +952,7 @@ Robot {
                                 }
                                 HingeJoint {
                                   jointParameters HingeJointParameters {
-                                    position -0.6124312385997165
+                                    position -0.6124310874451977
                                     axis 0 0 1
                                     anchor 0 0 0.081
                                   }
@@ -567,9 +969,83 @@ Robot {
                                     }
                                   ]
                                   endPoint Solid {
-                                    translation 3.657770763758009e-06 -2.5664720178939915e-06 0.08100196533755755
-                                    rotation 1.2726847592054916e-07 4.0338546188218086e-07 -0.9999999999999105 0.612431024153991
+                                    translation 7.289312681928907e-06 -2.498349052334101e-06 0.08102225140532238
+                                    rotation 1.5949865912760538e-07 1.1392386807990485e-06 -0.9999999999993383 0.6124312463415471
                                     children [
+                                      Solid {
+                                        translation -0.00999999 0 0.04
+                                        rotation 0 1 0 -1.5707953071795862
+                                        children [
+                                          Shape {
+                                            appearance PBRAppearance {
+                                              baseColor 0 0 0
+                                              baseColorMap ImageTexture {
+                                                url [
+                                                  "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/matte_car_paint/matte_car_paint_base_color.jpg"
+                                                ]
+                                                filtering 5
+                                              }
+                                              roughnessMap ImageTexture {
+                                                url [
+                                                  "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/textures/matte_car_paint/matte_car_paint_roughness.jpg"
+                                                ]
+                                                filtering 5
+                                              }
+                                              metalness 0
+                                              normalMapFactor 0.5
+                                              textureTransform TextureTransform {
+                                                scale 10 10
+                                              }
+                                            }
+                                            geometry Mesh {
+                                              url [
+                                                "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/devices/orbbec/protos/meshes/astra.obj"
+                                              ]
+                                            }
+                                          }
+                                          Camera {
+                                            translation 0.027 0.011 0.034
+                                            name "Astra rgb"
+                                            fieldOfView 1.04
+                                            width 640
+                                            height 480
+                                          }
+                                          RangeFinder {
+                                            translation 0.027 0.037 0.034
+                                            name "Astra depth"
+                                            fieldOfView 1.04
+                                            width 640
+                                            height 480
+                                            minRange 0.1
+                                            maxRange 8
+                                          }
+                                        ]
+                                        name "Astra"
+                                        boundingObject Group {
+                                          children [
+                                            DEF MAIN_BODY_BOX Pose {
+                                              translation 0.006 0 0.034
+                                              children [
+                                                Box {
+                                                  size 0.04 0.165 0.029
+                                                }
+                                              ]
+                                            }
+                                            DEF SUPPORT_BOX Pose {
+                                              translation -0.009 0 0.007
+                                              children [
+                                                Box {
+                                                  size 0.061 0.06 0.014
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                        physics Physics {
+                                          density -1
+                                          mass 0.19
+                                        }
+                                      }
                                       Shape {
                                         appearance PBRAppearance {
                                           baseColor 0.05 0.05 0.05
@@ -590,7 +1066,7 @@ Robot {
                                       }
                                       SliderJoint {
                                         jointParameters JointParameters {
-                                          position 0.0001260390123199333
+                                          position 0.00012670276136137024
                                           axis 0 1 0
                                         }
                                         device [
@@ -604,7 +1080,7 @@ Robot {
                                           }
                                         ]
                                         endPoint Solid {
-                                          translation 0 0.0001260390123199333 0.09
+                                          translation 0 0.00012670276136137024 0.09
                                           rotation 1 0 0 4.71239
                                           children [
                                             Shape {
@@ -658,13 +1134,13 @@ Robot {
                                               0 0 8.29319e-07
                                             ]
                                           }
-                                          linearVelocity 2.504225020356262e-05 -5.74934973569778e-06 2.429562284098997e-06
-                                          angularVelocity 7.317795472027988e-06 -5.728081584080613e-06 -9.46956616846517e-05
+                                          linearVelocity 0.00014613034355520318 -0.014598216618623627 -6.642043155479244e-06
+                                          angularVelocity -2.9107327778267857e-05 -0.0002711013084142592 0.000460811606120237
                                         }
                                       }
                                       SliderJoint {
                                         jointParameters JointParameters {
-                                          position 6.462687610261192e-06
+                                          position 5.908426492348589e-06
                                           axis 0 -1 0
                                         }
                                         device [
@@ -678,7 +1154,7 @@ Robot {
                                           }
                                         ]
                                         endPoint Solid {
-                                          translation 0 -6.462687610261192e-06 0.09
+                                          translation 0 -5.908426492348589e-06 0.09
                                           rotation 0 -0.7071067811865476 0.7071067811865476 3.14159
                                           children [
                                             Shape {
@@ -703,8 +1179,8 @@ Robot {
                                           name "finger::right"
                                           boundingObject USE FINGER_BO
                                           physics USE FINGER_PH
-                                          linearVelocity 2.580264719654521e-05 -7.496090835348931e-06 2.5939698000818863e-06
-                                          angularVelocity 7.3177869729728565e-06 -5.728060026061412e-06 -9.469565851440235e-05
+                                          linearVelocity 0.00014326934879565546 -0.014605690209497237 -1.121958546223571e-05
+                                          angularVelocity -2.9107322181992664e-05 -0.00027110131418372064 0.0004608116133607254
                                         }
                                       }
                                     ]
@@ -727,8 +1203,8 @@ Robot {
                                         0 0 0
                                       ]
                                     }
-                                    linearVelocity 2.394508172392334e-05 -6.886403183108161e-06 2.4155153572994843e-06
-                                    angularVelocity 7.317802066317674e-06 -5.728090335581502e-06 -9.469566351457289e-05
+                                    linearVelocity 0.00011027562839594845 -0.014590973673131887 -4.64635972483376e-06
+                                    angularVelocity -2.9107308713080142e-05 -0.0002711013299379384 0.00046081162915247994
                                   }
                                 }
                               ]
@@ -765,8 +1241,8 @@ Robot {
                                   0 0 -0.00015098
                                 ]
                               }
-                              linearVelocity 2.1673756936585918e-05 -7.284936291103576e-06 2.2875613944136026e-06
-                              angularVelocity 7.335789800470325e-06 -5.633688009931314e-06 -9.521030772331367e-05
+                              linearVelocity 5.9792344713348326e-05 -0.014584931421699525 -4.29112432420024e-06
+                              angularVelocity -2.830667121911765e-05 -0.00026746754473634074 0.00046212423044610714
                             }
                           }
                         ]
@@ -789,8 +1265,8 @@ Robot {
                             0 0 -5.99276e-20
                           ]
                         }
-                        linearVelocity 1.5029630258798379e-05 -4.013320238908003e-06 1.6736434891880829e-06
-                        angularVelocity 7.3355977113452044e-06 -5.634759139456985e-06 -9.52105749811476e-05
+                        linearVelocity 1.9415683239765095e-05 -0.0145653681523688 4.529464558753506e-06
+                        angularVelocity -2.830605075682347e-05 -0.000267468235944694 0.000462126430878474
                       }
                     }
                   ]
@@ -813,8 +1289,8 @@ Robot {
                       0 0 1.56701e-20
                     ]
                   }
-                  linearVelocity 4.700349229885998e-06 -6.561430735185522e-06 1.1930186199170558e-06
-                  angularVelocity 7.335303053044438e-06 -5.63375098467101e-06 -9.521420675529679e-05
+                  linearVelocity -1.3826373064650127e-05 -0.014580606447456654 -6.376057681692185e-06
+                  angularVelocity -2.8306170503665694e-05 -0.0002674682923350841 0.0004621335426255157
                 }
               }
             ]
@@ -839,8 +1315,8 @@ Robot {
                 -0.000533052 -0.00082008 -0.00062712
               ]
             }
-            linearVelocity 3.63784512450748e-07 -1.1612633323666202e-06 7.936798396505144e-07
-            angularVelocity 7.335986076749053e-06 -5.6314699439515485e-06 -9.522054607564213e-05
+            linearVelocity -1.3572685113578813e-05 -0.014558999016152353 6.071135531652205e-06
+            angularVelocity -2.8316753657651543e-05 -0.0002674615666448796 0.00046214224063720224
           }
         }
       ]
@@ -868,7 +1344,7 @@ Robot {
     }
     DEF WHEEL1 HingeJoint {
       jointParameters HingeJointParameters {
-        position 534.7447830148782
+        position 777.3907332983547
         axis 0 1 0
         anchor 0.228 -0.158 -0.055
       }
@@ -882,8 +1358,8 @@ Robot {
         }
       ]
       endPoint DEF WHEEL_SOLID Solid {
-        translation 0.22815998831673062 -0.15799078641455 -0.05486726609101445
-        rotation 2.4677401310752232e-05 -0.9999999996794958 5.659900919296277e-06 5.6091534085679795
+        translation 0.227834652752588 -0.1580247567384823 -0.05476851967221094
+        rotation 2.4678225837491354e-05 -0.9999999995357839 -1.7872251327812167e-05 1.724244794728357
         children [
           Shape {
             appearance PBRAppearance {
@@ -1063,13 +1539,13 @@ Robot {
           density -1
           mass 0.4
         }
-        linearVelocity -2.5145695636906165e-07 -1.934728456826761e-07 3.1603515991923774e-06
-        angularVelocity 7.418820072023184e-06 -5.037857552988801e-06 8.732522299371063e-08
+        linearVelocity 5.1236453891868307e-05 -0.014695223104400783 1.4877469767213886e-05
+        angularVelocity 0.3140392608222122 -0.0054800233480562415 0.0005672364554468455
       }
     }
     DEF WHEEL2 HingeJoint {
       jointParameters HingeJointParameters {
-        position 423.00764527679246
+        position 407.60302100355625
         axis 0 1 0
         anchor 0.228 0.158 -0.055
       }
@@ -1083,8 +1559,8 @@ Robot {
         }
       ]
       endPoint DEF WHEEL_SOLID Solid {
-        translation 0.22818669142425843 0.15800917632660555 -0.05501390808798132
-        rotation 6.079803566902784e-06 -0.9999999999515654 7.739842274110865e-06 4.248955600711291
+        translation 0.22774647493234942 0.15799699308166182 -0.054697805043920716
+        rotation -1.598966450578603e-05 -0.9999999993923407 3.097820462784872e-05 0.8040239528533787
         children [
           Shape {
             appearance PBRAppearance {
@@ -1264,13 +1740,13 @@ Robot {
           density -1
           mass 0.4
         }
-        linearVelocity -2.52156097243661e-07 -2.207748927867842e-07 1.5460094328282403e-06
-        angularVelocity 7.419663749096929e-06 -5.037841613573091e-06 8.732424498749635e-08
+        linearVelocity 5.2353962794392184e-05 -0.014416080797560064 -3.016346956542067e-05
+        angularVelocity -0.314097548452716 0.0049466424369745375 0.0001251813941539597
       }
     }
     DEF WHEEL3 HingeJoint {
       jointParameters HingeJointParameters {
-        position 423.4234850423028
+        position 403.9846512661735
         axis 0 1 0
         anchor -0.228 -0.158 -0.055
       }
@@ -1284,8 +1760,8 @@ Robot {
         }
       ]
       endPoint DEF WHEEL_SOLID Solid {
-        translation -0.22786659305077359 -0.15800873005104643 -0.055019859453842454
-        rotation 4.198461905824609e-06 -0.9999999999548621 8.52340305573401e-06 3.8331158619879453
+        translation -0.2279027956920672 -0.15797024331738577 -0.05481255346445805
+        rotation -2.5503106738329e-05 0.99999999946352 -2.0556057777661962e-05 1.8607915907492225
         children [
           Shape {
             appearance PBRAppearance {
@@ -1465,13 +1941,13 @@ Robot {
           density -1
           mass 0.4
         }
-        linearVelocity -2.572661827185629e-07 -5.108305545885503e-07 -4.11715022110104e-07
-        angularVelocity 7.33141780149572e-06 -5.03739784763529e-06 8.742786923124784e-08
+        linearVelocity -0.0001068833768888977 -0.014560511270648705 -1.5934554741787917e-05
+        angularVelocity -0.3141142347256831 0.004946781310347938 0.00012465858427306926
       }
     }
     DEF WHEEL4 HingeJoint {
       jointParameters HingeJointParameters {
-        position 536.4131360692863
+        position 779.4418484558815
         axis 0 1 0
         anchor -0.228 0.158 -0.055
       }
@@ -1485,8 +1961,8 @@ Robot {
         }
       ]
       endPoint DEF WHEEL_SOLID Solid {
-        translation -0.22788305611646667 0.1579912789887179 -0.055024086994772535
-        rotation 4.7496271968716005e-06 -0.9999999999529233 8.461345216294137e-06 3.940800362678649
+        translation -0.22798430503065084 0.15799934382705771 -0.054739774477850146
+        rotation 0.00011920530550559755 0.9999999918156541 4.646274968815711e-05 0.3268703580450585
         children [
           Shape {
             appearance PBRAppearance {
@@ -1666,8 +2142,8 @@ Robot {
           density -1
           mass 0.4
         }
-        linearVelocity -2.5826989680844646e-07 -5.718031785671795e-07 -2.0401586068175587e-06
-        angularVelocity 7.794055722964805e-06 -5.0302471542026834e-06 8.692940002758166e-08
+        linearVelocity -0.00010814056704802441 -0.014591003786230676 3.1207193288197643e-05
+        angularVelocity 0.31405989406896107 -0.005480309531525158 0.0005680175352880513
       }
     }
     DEF PLATE Solid {
@@ -1780,7 +2256,38 @@ Robot {
       0 0 0
     ]
   }
-  controller "ros"
-  linearVelocity -3.3684478847731444e-07 -6.113541602327356e-07 2.6182644649953202e-08
-  angularVelocity 7.4769357935532625e-06 -5.0357515687388116e-06 8.740290019104371e-08
+  controller "<extern>"
+  linearVelocity -3.0351280671101328e-05 -0.014565546825165315 2.3586885914604166e-07
+  angularVelocity -2.824948733042689e-05 -0.00026667286084899015 0.00034738200575829334
+}
+SolidBox {
+  translation 0 -1.22 0.05
+  size 1 1 0.1
+  appearance PBRAppearance {
+    roughness 1
+    metalness 0
+    IBLStrength 10
+  }
+}
+SolidBox {
+  translation 1.08185 0.645947 0.05
+  rotation 0 0 1 -0.785395307179586
+  name "box(1)"
+  size 0.6 1.3 0.1
+  appearance PBRAppearance {
+    roughness 1
+    metalness 0
+    IBLStrength 10
+  }
+}
+SolidBox {
+  translation -1.25872 1.26778 0.05
+  rotation 0 0 1 -2.8797953071795863
+  name "box(2)"
+  size 1 0.5 0.1
+  appearance PBRAppearance {
+    roughness 1
+    metalness 0
+    IBLStrength 10
+  }
 }
