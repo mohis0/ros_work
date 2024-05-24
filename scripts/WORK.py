@@ -54,6 +54,7 @@ def go(speed1, speed2, speed3, speed4):
     wheel3.setVelocity(speed3)
     wheel4.setVelocity(speed4)
 
+go(0,0,0,0)
 # Initialize arm motors
 arm1 = robot.getDevice("arm1")
 arm2 = robot.getDevice("arm2")
@@ -173,9 +174,9 @@ def finger_callback(data):
     fingerPos(pos1, pos2)
     
 # Subscribing to control topics
-rospy.Subscriber('wheel/setvel', Float64, speed_callback)
-rospy.Subscriber('arm/setpos', Float64, arm_callback)
-rospy.Subscriber('finger/setpos', Float64, finger_callback)
+rospy.Subscriber('wheel/setvel', Float64MultiArray, speed_callback)
+rospy.Subscriber('arm/setpos', Float64MultiArray, arm_callback)
+rospy.Subscriber('finger/setpos', Float64MultiArray, finger_callback)
 
 # Define publishers for sensor data
 encoder_pub = rospy.Publisher('wheel/getpos', Float64MultiArray, queue_size=10)
