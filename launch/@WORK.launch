@@ -13,4 +13,5 @@
   <arg name="duration" default="20" doc="Duration in seconds"/>
   <arg name="auto_close" default="false" doc="Startup mode"/>
   <node name="WORK" pkg="ros_work" type="WORK.py" args="$(arg duration)" required="$(arg auto_close)" output="screen" respawn="true"/>
+  <node name="image_subscribe" pkg="ros_work" type="image_subscribe.py" args="$(arg duration)" required="$(arg auto_close)" output="screen"/>
 </launch>

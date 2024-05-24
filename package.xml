@@ -4,11 +4,11 @@
   <!-- Before 2022.1.0: Version matches Webots version this way: (major - 2018).minor.maintenance -->
   <!-- From 2022.1.0: Version matches Webots version this way: year.minor.maintenance -->
   <version>2023.1.0</version>
-  <description>The ROS package containing examples for interfacing ROS with the standard ROS controller of Webots</description>
+  <description>The ROS package containing a simulator for @WORK Robocup</description>
 
-  <url>http://wiki.ros.org/webots_ros</url>
-  <maintainer email="support@cyberbotics.com">Cyberbotics</maintainer>
-  <author>Cyberbotics</author>
+  <url>https://github.com/mohis0/ros_work.git</url>
+  <maintainer email="iammohis@gmail.com">Cyberbotics</maintainer>
+  <author>mohis0</author>
 
   <license>Apache 2.0</license>
 

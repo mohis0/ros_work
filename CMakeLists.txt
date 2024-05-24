@@ -86,3 +86,9 @@ catkin_install_python(PROGRAMS scripts/webots_launcher.py
 
 catkin_install_python(PROGRAMS scripts/WORK.py
         DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+catkin_install_python(PROGRAMS scripts/image_subscribe.py
+        DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+catkin_install_python(PROGRAMS scripts/sensors_subscribe.py
+        DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
